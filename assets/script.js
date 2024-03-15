@@ -27,13 +27,9 @@ const arrowRight = document.querySelector('.arrow_right');
 let currentSlide = 0;
 let slideInterval; // Pour stocker l'ID de l'intervalle
 
-// Sélectionnez les flèches gauche et droite
-const prevArrow = document.querySelector('.arrow_left');
-const nextArrow = document.querySelector('.arrow_right');
-
 // Modifiez la couleur des flèches en blanc
-prevArrow.style.color = 'white';
-nextArrow.style.color = 'white';
+arrowLeft.style.color = 'white';
+arrowRight.style.color = 'white';
 
 function showSlide(index) {
     bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
@@ -84,3 +80,4 @@ startSlideShow();
 // Initialize
 showSlide(currentSlide);
 updateDots(currentSlide);
+
