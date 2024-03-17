@@ -34,16 +34,7 @@ arrowRight.style.color = 'white';
 function showSlide(index) {
     bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
     bannerText.innerHTML = slides[index].tagLine;
-    
-    // Correction apportée ici :
-    console.log(`Affichage de la diapositive ${index + 1}:`);
-    console.log('Image:', slides[index].image);
-    console.log('Tagline:', slides[index].tagLine);
 }
-
-
-
-
 
 function updateDots(index) {
     dotsContainer.innerHTML = '';
@@ -64,8 +55,6 @@ function nextSlide() {
     }
     showSlide(currentSlide);
     updateDots(currentSlide);
-
-    console.log('Passage à la diapositive suivante. Diapositive actuelle:', currentSlide + 1);
 }
 
 function prevSlide() {
@@ -74,24 +63,35 @@ function prevSlide() {
         currentSlide = slides.length - 1;
     }
     showSlide(currentSlide);
-    updateDots(currentSlide); 
-
-    console.log('Passage à la diapositive précédente. Diapositive actuelle:', currentSlide + 1);
+    updateDots(currentSlide);
 }
-
 
 function startSlideShow() {
     slideInterval = setInterval(nextSlide, 2000); // Défilement automatique toutes les 5 secondes
 }
 
-// Écouter les événements de clic sur les flèches
-arrowLeft.addEventListener('click', prevSlide);
-arrowRight.addEventListener('click', nextSlide);
-
 // Démarrer le diaporama automatique lors du chargement de la page
 startSlideShow();
 
-// Initialize
+// Initialise le premier slide et les points
 showSlide(currentSlide);
 updateDots(currentSlide);
+
+let isPlaying = true; // Le diaporama commence à jouer automatiquement
+
+const container = document.getElementById('banner');
+
+container.addEventListener('click', function() {
+    if (isPlaying) {
+        clearInterval(slideInterval); // Arrête le défilement automatique
+        isPlaying = false; // Met à jour l'état de lecture
+    } else {
+        startSlideShow(); // Relance le défilement automatique
+        isPlaying = true; // Met à jour l'état de lecture
+    }
+});
+
+// Écouter les événements de clic sur les flèches
+arrowLeft.addEventListener('click', prevSlide);
+arrowRight.addEventListener('click', nextSlide);
 
