@@ -83,15 +83,33 @@ function prevSlide() {
 function startSlideShow() {
     slideInterval = setInterval(nextSlide, 2000); // Défilement automatique toutes les 5 secondes
 }
+// Démarrer le diaporama automatique lors du chargement de la page
+startSlideShow();
+
+// Initialise le premier slide et les points
+showSlide(currentSlide);
+updateDots(currentSlide);
+
+let isPlaying = true; // Le diaporama commence à jouer automatiquement
+
+const container = document.getElementById('banner');
+
+container.addEventListener('click', function() {
+    if (isPlaying) {
+        clearInterval(slideInterval); // Arrête le défilement automatique
+        isPlaying = false; // Met à jour l'état de lecture
+    } else {
+        startSlideShow(); // Relance le défilement automatique
+        isPlaying = true; // Met à jour l'état de lecture
+    }
+});
+
 
 // Écouter les événements de clic sur les flèches
 arrowLeft.addEventListener('click', prevSlide);
 arrowRight.addEventListener('click', nextSlide);
 
-// Démarrer le diaporama automatique lors du chargement de la page
-startSlideShow();
 
-// Initialize
-showSlide(currentSlide);
-updateDots(currentSlide);
+
+
 
