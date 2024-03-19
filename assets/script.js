@@ -27,10 +27,6 @@ const arrowRight = document.querySelector('.arrow_right');
 let currentSlide = 0;
 let slideInterval; // Pour stocker l'ID de l'intervalle
 
-// Modifiez la couleur des flèches en blanc
-arrowLeft.style.color = 'white';
-arrowRight.style.color = 'white';
-
 // Fonction pour afficher une diapositive spécifique
 function showSlide(index) {
     // Vérifier si l'index est inférieur à 0 ou supérieur ou égal à la longueur des diapositives
@@ -72,14 +68,26 @@ function prevSlide() {
     updateDots(currentSlide); // Mettre à jour les points de repère
 }
 
+// Fonction pour démarrer le défilement automatique
+function startSlideShow() {
+    slideInterval = setInterval(nextSlide, 2000); // Défilement automatique toutes les 2 secondes
+}
+
+// Démarrer le défilement automatique
+startSlideShow();
+
 // Écouter les événements de clic sur les flèches
 arrowLeft.addEventListener('click', function() {
     console.log("Bouton gauche cliqué");
     prevSlide(); // Appeler la fonction pour passer à la diapositive précédente
+    clearInterval(slideInterval); // Arrêter l'intervalle actuel
+    startSlideShow(); // Redémarrer le défilement automatique
 });
 
 arrowRight.addEventListener('click', function() {
     console.log("Bouton droit cliqué");
     nextSlide(); // Appeler la fonction pour passer à la diapositive suivante
+    clearInterval(slideInterval); // Arrêter l'intervalle actuel
+    startSlideShow(); // Redémarrer le défilement automatique
 });
 
