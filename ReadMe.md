@@ -4,7 +4,7 @@
 
 Ce projet est un exemple simple de carrousel d'images réalisé en HTML, CSS et JavaScript.
 
-![Aperçu du Carrousel](carousel_preview.png)
+![https://www.searching-murphy.com/printit/](https://github.com/Antoine-Thomas/print/blob/main/assets/images/logo.png)
 
 ## Description
 
@@ -26,7 +26,7 @@ Ce carrousel d'images permet de faire défiler des diapositives contenant des im
 
 ## Crédits
 
-Ce projet a été créé par [Votre Nom ou Alias](lien vers votre profil GitHub ou site web).
+Ce projet a été créé par [https://github.com/Antoine-Thomas]
 
 ## Licence
 
