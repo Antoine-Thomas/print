@@ -4,7 +4,7 @@
 
 Ce projet est un exemple simple de carrousel d'images réalisé en HTML, CSS et JavaScript.
 
-!Ce projet a été créé par [Antoine Thomas](https://github.com/Antoine-Thomas/print/blob/main/assets/images/logo.png)
+! [](https://github.com/Antoine-Thomas/print/blob/main/assets/images/logo.png)
 
 [Aperçu du Carrousel](https://www.searching-murphy.com/printit/).
 
