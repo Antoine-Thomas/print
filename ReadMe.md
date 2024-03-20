@@ -6,7 +6,7 @@ Ce projet est un exemple simple de carrousel d'images réalisé en HTML, CSS et 
 
 ![Print-It](https://github.com/Antoine-Thomas/print/blob/main/assets/images/logo.png)
 
-[Aperçu du Carrousel](https://www.searching-murphy.com/printit/).
+[Aperçu du Carrousel](https://antoine-thomas.github.io/print/).
 
 ## Description
 
