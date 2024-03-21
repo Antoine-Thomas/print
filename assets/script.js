@@ -5,19 +5,19 @@ const slides = [
     },
     {
         "image": "slide2.jpg",
-        "tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+        "tagLine": "Tirages haute définition grand format <span>pour vos bureaux et événements</span>"
     },
     {
         "image": "slide3.jpg",
-        "tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
+        "tagLine": "Grand choix de couleurs <span>de CMJN aux Pantones</span>"
     },
     {
         "image": "slide4.png",
         "tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
     }
 ];
-document.addEventListener("DOMContentLoaded", function (e) {
-
+// Code exécuté lorsque le DOM est entièrement chargé
+document.addEventListener("DOMContentLoaded", function (event) {
 
     const banner = document.getElementById('banner');
     const bannerImg = document.querySelector('.banner-img');
@@ -27,8 +27,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     const arrowRight = document.querySelector('.arrow_right');
 
     let currentSlide = 0;
-    createDots()
-    showSlide(currentSlide)
+
+    // Créer les points de repère (dots)
+    createDots();
+    // Afficher la première diapositive
+    showSlide(currentSlide);
 
     // Fonction pour afficher une diapositive spécifique
     function showSlide(index) {
@@ -41,76 +44,59 @@ document.addEventListener("DOMContentLoaded", function (e) {
         // Mettre à jour l'image et le texte de la diapositive actuelle
         bannerImg.src = `./assets/images/slideshow/${slides[currentSlide].image}`;
         bannerText.innerHTML = slides[currentSlide].tagLine;
-
     }
 
-       // ajoute dotselected aux autres classes 
-        function updateDots(index) {
-        const dots = document.querySelectorAll('.dot')
-        console.log(dots)
-        dots.forEach(dot => dot.classList.remove("dot_selected"))
-        dots[index].classList.add('dot_selected')
-
+    // Fonction pour mettre à jour les points de repère
+    function updateDots(index) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach(dot => dot.classList.remove("dot_selected"));
+        dots[index].classList.add('dot_selected');
     }
-         function createDots() {
 
-        // Créer et ajouter les nouveaux points de repère
-
+    // Créer les points de repère
+    function createDots() {
         for (let i = 0; i < slides.length; i++) {
             const dot = document.createElement('div');
             dot.classList.add('dot');
-           
             dotsContainer.appendChild(dot);
-      
-
         }
         updateDots(currentSlide);
-        listenDots()
+        listenDots();
     }
 
-       function listenDots() {
-        const dots = document.querySelectorAll('.dot')
-        for (let i = 0; i<dots.length; i++) {
-            dots[i].addEventListener('click',function(e){
-            currentSlide=i
-            showSlide(i)
-            console.log(i)
-            updateDots(currentSlide);
-
-           })
+    // Écouter les clics sur les points de repère
+    function listenDots() {
+        const dots = document.querySelectorAll('.dot');
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener('click', function (e) {
+                currentSlide = i;
+                showSlide(i);
+                updateDots(currentSlide);
+            });
         }
- 
     }
 
-       // Fonction pour passer à la diapositive suivante
+    // Fonction pour passer à la diapositive suivante
     function nextSlide() {
-        currentSlide++; // Incrémenter l'index de la diapositive
-        showSlide(currentSlide); // Afficher la diapositive suivante
-        updateDots(currentSlide); // Mettre à jour les points de repère
-
-
+        currentSlide++;
+        showSlide(currentSlide);
+        updateDots(currentSlide);
     }
 
     // Fonction pour passer à la diapositive précédente
     function prevSlide() {
-        currentSlide--; // Décrémenter l'index de la diapositive
-        showSlide(currentSlide); // Afficher la diapositive précédente
-        updateDots(currentSlide); // Mettre à jour les points de repère
-
+        currentSlide--;
+        showSlide(currentSlide);
+        updateDots(currentSlide);
     }
 
-
-    // Écouter les événements de clic sur les flèches
+    // Écouter les clics sur les flèches
     arrowLeft.addEventListener('click', function () {
-        console.log("Bouton gauche cliqué");
-        prevSlide(); // Appeler la fonction pour passer à la diapositive précédente
-
-
+        prevSlide();
     });
 
     arrowRight.addEventListener('click', function () {
-        console.log("Bouton droit cliqué");
-        nextSlide(); // Appeler la fonction pour passer à la diapositive suivante
-
+        nextSlide();
     });
-})
+});
+
