@@ -95,3 +95,5 @@ arrowLeft.addEventListener('click', function () {
 arrowRight.addEventListener('click', function () {
     nextSlide();
 });
+
+
