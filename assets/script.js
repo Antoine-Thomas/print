@@ -89,11 +89,14 @@ function prevSlide() {
 
 // Écoute des clics sur les flèches
 arrowLeft.addEventListener('click', function () {
+    console.log('Clic sur la flèche gauche');
     prevSlide();
 });
 
 arrowRight.addEventListener('click', function () {
+    console.log('Clic sur la flèche droite');
     nextSlide();
 });
+
 
 
