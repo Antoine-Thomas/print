@@ -34,7 +34,7 @@ showSlide(currentSlide);
 // Fonction pour afficher une diapositive spécifique
 function showSlide(index) {
     if (index < 0) {
-        currentSlide = slides.length - 1; // Revenir à la dernière diapositive si nécessaire
+        currentSlide = slides.length - 1; // aller à la dernière diapositive si nécessaire
     } else if (index >= slides.length) {
         currentSlide = 0; // Revenir à la première diapositive si nécessaire
     }
@@ -43,16 +43,9 @@ function showSlide(index) {
     bannerText.innerHTML = slides[currentSlide].tagLine;
 }
 
-// Fonction pour mettre à jour les points de repère
-function updateDots(index) {
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => dot.classList.remove("dot_selected"));
-    dots[index].classList.add('dot_selected');
-}
-
 // Création des points de repère
 function createDots() {
-    for (let i = 0; i < slides.length; i++) {
+    for (let index = 0; index < slides.length; index++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dotsContainer.appendChild(dot);
@@ -61,17 +54,30 @@ function createDots() {
     listenDots(); // Ajout des écouteurs d'événements aux points de repère
 }
 
+
+// Fonction pour mettre à jour les points de repère
+function updateDots(index) {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove("dot_selected"));
+    dots[index].classList.add('dot_selected');
+}
+
+
+
 // Écoute des clics sur les points de repère
 function listenDots() {
     const dots = document.querySelectorAll('.dot');
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].addEventListener('click', function (e) {
-            currentSlide = i;
-            showSlide(i);
+    for (let index = 0; index < dots.length; index++) {
+        dots[index].addEventListener('click', function (event) {
+            currentSlide = index;
+            showSlide(index);
             updateDots(currentSlide);
         });
     }
 }
+
+
+// Fonctions click pour les flèches
 
 // Fonction pour passer à la diapositive suivante
 function nextSlide() {
