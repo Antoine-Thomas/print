@@ -50,7 +50,7 @@ function showSlide(index) {
 // Fonction pour mettre à jour le point de repère plein
 function updateDots(index) {
     const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => dot.classList.remove("dot_selected"));
+    (dot =>dots.forEach dot.classList.remove("dot_selected"));
     dots[index].classList.add('dot_selected');
 }
 
