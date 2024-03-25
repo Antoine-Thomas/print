@@ -31,7 +31,7 @@ createDots();
 // Affichage de la première diapositive
 showSlide(currentSlide);
 
-// Fonction pour afficher une diapositive spécifique
+// Fonction defilement infini déclarations condition
 function showSlide(index) {
     if (index < 0) {
         currentSlide = slides.length - 1; // aller à la dernière diapositive si nécessaire
@@ -43,19 +43,11 @@ function showSlide(index) {
     bannerText.innerHTML = slides[currentSlide].tagLine;
 }
 
-// Création des points de repère
-function createDots() {
-    for (let index = 0; index < slides.length; index++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        dotsContainer.appendChild(dot);
-    }
-    updateDots(currentSlide); // Mise à jour des points de repère pour afficher celui correspondant à la diapositive actuelle
-    listenDots(); // Ajout des écouteurs d'événements aux points de repère
-}
 
 
-// Fonction pour mettre à jour les points de repère
+
+
+// Fonction pour mettre à jour le point de repère plein
 function updateDots(index) {
     const dots = document.querySelectorAll('.dot');
     dots.forEach(dot => dot.classList.remove("dot_selected"));
@@ -63,6 +55,16 @@ function updateDots(index) {
 }
 
 
+// Création des points de repère vides en boucle
+function createDots() {
+    for (let index = 0; index < slides.length; index++) {
+        const dot = document.createElement('div');
+        dotsContainer.appendChild(dot);
+        dot.classList.add('dot');
+    }
+    updateDots(currentSlide); // Mise à jour des points de repère pour afficher celui correspondant à la diapositive actuelle
+    listenDots(); // Ajout des écouteurs d'événements aux points de repère
+}
 
 // Écoute des clics sur les points de repère
 function listenDots() {
@@ -75,6 +77,8 @@ function listenDots() {
         });
     }
 }
+
+
 
 
 // Fonctions click pour les flèches
