@@ -31,7 +31,7 @@ createDots();
 // Affichage de la première diapositive
 showSlide(currentSlide);
 
-// Fonction defilement infini déclarations condition
+// Fonction affichage du slider déclarations conditions
 function showSlide(index) {
     if (index < 0) {
         currentSlide = slides.length - 1; // aller à la dernière diapositive si nécessaire
