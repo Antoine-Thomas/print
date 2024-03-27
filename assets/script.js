@@ -31,7 +31,7 @@ createDots();
 // Affichage de la première diapositive
 showSlide(currentSlide);
 
-// Fonction affichage du slider déclarations conditions
+// affichage du slider déclarations condition
 function showSlide(index) {
     if (index < 0) {
         currentSlide = slides.length - 1; // aller à la dernière diapositive si nécessaire
@@ -50,8 +50,8 @@ function showSlide(index) {
 // Fonction pour mettre à jour le point de repère pleins
 function updateDots(index) {
     const dots = document.querySelectorAll('.dot');
-    dots[index].classList.add('dot_selected');
     dots.forEach(dot => dot.classList.remove("dot_selected"));
+    dots[index].classList.add('dot_selected');
 }
 
 
